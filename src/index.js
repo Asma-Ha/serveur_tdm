@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
   res.send('app entry point');
 });
 
-app.use('/api', router)
+app.use('/restaurants', router)
 
 
 
