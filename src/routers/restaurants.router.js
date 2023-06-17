@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const restaurantService = require("./services/restaurants")
+const restaurantService = require("../services/restaurants")
 
 
 router.get('/getAll', async function(req, res) {

@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const path = require('path');
 
-const router = require("./router")
+const restaurantsRouter = require("./routers/restaurants.router")
+const usersRouter = require("./routers/users.router")
 app.use(express.json())
 
 app.use(
@@ -16,9 +18,10 @@ app.get('/', (req, res) => {
   res.send('app entry point');
 });
 
-app.use('/restaurants', router)
+app.use('/restaurants', restaurantsRouter)
+app.use('/users', usersRouter)
 
-
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
